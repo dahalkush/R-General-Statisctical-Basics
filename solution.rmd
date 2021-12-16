@@ -1,0 +1,66 @@
+---
+title: "homeowrk 3"
+author: "Kushal Dahal"
+date: "9/25/2021"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#CSv File
+```{r}
+a<-read.csv("dataset.csv")
+```
+#Group 1: Mean,Median, Standard Deviation and Range 
+```{r}
+Group1<-a[a$Group=='1',]
+MeanOfGroup1<-mean(Group1$Area)
+MedianOfGroup1<-median(Group1$Area)
+SDofGroup1<-sd(Group1$Area)
+RangeOfGroup1<-range(Group1$Area)
+MeanOfGroup1
+MedianOfGroup1
+SDofGroup1
+RangeOfGroup1
+```
+
+#Group 2: Mean,Median, Standard Deviation and Range 
+```{r}
+Group2<-a[a$Group=='2',]
+MeanOfGroup2<-mean(Group2$Area)
+MedianOfGroup2<-median(Group2$Area)
+SDofGroup2<-sd(Group2$Area)
+RangeOfGroup2<-range(Group2$Area)
+MeanOfGroup2
+MedianOfGroup2
+SDofGroup2
+RangeOfGroup2
+```
+#Boxplot
+```{r}
+library(tidyverse)
+a %>% ggplot(aes(x=Group, y=Area)) + 
+  geom_boxplot(width=0.5,lwd=1)
+```
+
+#Group1 Normality Distribution:
+```{r}
+a_Group1<-Group1$Area
+hist(a_Group1, main = "Data DIstribution")
+```
+
+#Group2 Normal Distribution:
+
+```{r}
+a_Group2<-Group2$Area
+hist(a_Group2, main = "Data DIstribution")
+```
+
+The group with the disease had a smaller area of disc of what they were measuring than the control group
+ 
